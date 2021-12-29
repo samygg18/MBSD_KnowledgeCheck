@@ -1,4 +1,0 @@
-LIBRARY GDS_sfun.lib
-EXPORTS
-mexFunction
-mexfilerequiredapiversion
