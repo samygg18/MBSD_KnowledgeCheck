@@ -1,0 +1,41 @@
+CC     = "C:\Program Files\MATLAB\R2017b\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "C:\Program Files\MATLAB\R2017b\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "C:\Program Files\MATLAB\R2017b\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -nodeclspec -DMX_COMPAT_32 
+LDFLAGS = -s -dll -L"C:\Program Files\MATLAB\R2017b\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"GenOptRockerMomtryDisHndlr_sfun.obj"\
+	"c1_GenOptRockerMomtryDisHndlr.obj"\
+	"c2_GenOptRockerMomtryDisHndlr.obj"\
+	"c4_GenOptRockerMomtryDisHndlr.obj"\
+	"c5_GenOptRockerMomtryDisHndlr.obj"\
+	"c6_GenOptRockerMomtryDisHndlr.obj"\
+	"GenOptRockerMomtryDisHndlr_sfun_registry.obj"\
+	"lccstub.obj"\
+	"c_mexapi_version.obj"\
+
+INCLUDE_PATH= -I"C:\Program Files\MATLAB\R2017b\extern\include"  -I"C:\Program Files\MATLAB\R2017b\simulink\include"  -I"C:\Program Files\MATLAB\R2017b\simulink\include\sf_runtime"  -I"C:\Program Files\MATLAB\R2017b\stateflow\c\mex\include"  -I"C:\Program Files\MATLAB\R2017b\rtw\c\src"  -I"C:\Training\Knowledge Check\GORMDH\MBSD\work\slprj\_sfprj\GenOptRockerMomtryDisHndlr\_self\sfun\src"  -I"C:\Program Files\MATLAB\R2017b\sys\lcc64\lcc64\include64" 
+ 
+
+GenOptRockerMomtryDisHndlr_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o GenOptRockerMomtryDisHndlr_sfun.mexw64 @GenOptRockerMomtryDisHndlr_sfun.lmko
+GenOptRockerMomtryDisHndlr_sfun.obj :	"GenOptRockerMomtryDisHndlr_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "GenOptRockerMomtryDisHndlr_sfun.c"
+c1_GenOptRockerMomtryDisHndlr.obj :	"c1_GenOptRockerMomtryDisHndlr.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c1_GenOptRockerMomtryDisHndlr.c"
+c2_GenOptRockerMomtryDisHndlr.obj :	"c2_GenOptRockerMomtryDisHndlr.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_GenOptRockerMomtryDisHndlr.c"
+c4_GenOptRockerMomtryDisHndlr.obj :	"c4_GenOptRockerMomtryDisHndlr.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c4_GenOptRockerMomtryDisHndlr.c"
+c5_GenOptRockerMomtryDisHndlr.obj :	"c5_GenOptRockerMomtryDisHndlr.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c5_GenOptRockerMomtryDisHndlr.c"
+c6_GenOptRockerMomtryDisHndlr.obj :	"c6_GenOptRockerMomtryDisHndlr.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c6_GenOptRockerMomtryDisHndlr.c"
+GenOptRockerMomtryDisHndlr_sfun_registry.obj :	"GenOptRockerMomtryDisHndlr_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "GenOptRockerMomtryDisHndlr_sfun_registry.c"
+lccstub.obj :	"C:\Program Files\MATLAB\R2017b\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2017b\sys\lcc64\lcc64\mex\lccstub.c"
+c_mexapi_version.obj :	"C:\Program Files\MATLAB\R2017b\extern\version\c_mexapi_version.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "C:\Program Files\MATLAB\R2017b\extern\version\c_mexapi_version.c"
